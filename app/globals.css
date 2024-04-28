@@ -35,3 +35,42 @@ body {
 .anchor:hover {
   @apply visible;
 }
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+.anchorH1,
+.anchorH2,
+.anchorH3,
+.anchorH4,
+.anchorH5,
+.anchorH6{
+  margin: 30px 0 5px 0;
+  font-weight: 700;
+
+}
+.anchorH1 {
+  font-size: 26px;
+}
+.anchorH2 {
+  font-size: 20px;
+}
+.anchorH3 {
+  font-size: 18px;
+}
+
+.link-a{
+  text-decoration: underline;
+  margin: 0 4px;
+}
+.custom-blog-li{
+  &::before {
+    content: '- ';
+  }
+}
