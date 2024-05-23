@@ -5,7 +5,7 @@ function Badge(props) {
     <a
       {...props}
       target="_blank"
-      className="inline-flex items-center rounded border text-neutral-100 border-neutral-300 bg-neutral-100 p-2 text-base leading-4 underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:font-semibold"
+      className="inline-flex items-center rounded border text-neutral-100 border-neutral-300 bg-neutral-100 p-2 text-base leading-4 underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
     />
   );
 }
@@ -20,7 +20,7 @@ function Tag({ name }: { name: string }) {
 
 export default function Home() {
   return (
-    <div>
+    <div className="max-w-3xl">
       <h1 className="mb-8 mt-8 text-xl font-medium tracking-tighter">
         欢迎来到我的个人数字花园，很高兴遇见你！🤝
       </h1>

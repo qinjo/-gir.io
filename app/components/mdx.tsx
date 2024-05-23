@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 // import { TweetComponent } from './tweet';
-// import { highlight } from 'sugar-high';
+import { highlight } from 'sugar-high';
 import React from "react";
 // import { LiveCode } from './sandpack';
 
@@ -61,10 +61,7 @@ function CustomLink(props) {
   }
 
   return (
-    <span className="flex flex-row">
-      <a target="_blank" rel="noopener noreferrer" className="link-a" {...props} />
-      <ArrowIcon/>
-    </span>
+      <a target="_blank" rel="noopener noreferrer" className="text-blue-400" {...props} />
   );
 }
 
@@ -114,6 +111,12 @@ function ProsCard({ title, pros }) {
   );
 }
 
+function PComponent() {
+  return (
+    <p className="whitespace-pre-line"/>
+  )
+}
+
 function ConsCard({ title, cons }) {
   return (
     <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
@@ -139,10 +142,10 @@ function ConsCard({ title, cons }) {
   );
 }
 
-// function Code({ children, ...props }) {
-//   let codeHTML = highlight(children);
-//   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
-// }
+function Code({ children, ...props }) {
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
 
 function slugify(str) {
   return str
@@ -187,8 +190,9 @@ let components = {
   ProsCard,
   ConsCard,
   li: CustomLi,
+  // p: PComponent,
   // StaticTweet: TweetComponent,
-  // code: Code,
+  code: Code,
   Table,
   // LiveCode,
 };

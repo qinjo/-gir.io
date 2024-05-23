@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,8 +14,17 @@ export const metadata: Metadata = {
 const myFont = localFont({
   src: "../public/fonts/LXGWWenKaiGBScreen.ttf",
   display: "swap",
-  preload: true
+  preload: true,
 });
+
+export function TailwindBackground() {
+  return (
+    <div className="relative size-full bg-slate-950">
+      <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] size-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]" />
+      <div className="absolute bottom-0 right-[-20%] top-[-10%] size-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]" />
+    </div>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -24,13 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`bg-black font-custom`}>
+    <html lang="en" className={`font-custom`}>
       <body
-        className={`${inter.className} ${myFont.className} antialiased max-w-3xl mb-40 flex flex-col md:flex-row mx-8 mt-8 lg:mx-auto`}
+        className={`${inter.className} ${myFont.className} h-full w-full antialiased flex flex-col md:flex-row items-center justify-items-center`}
       >
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col h-full px-2 md:px-0 justify-items-center items-center">
+          {/* <div className="absolute top-0 z-[-2] h-screen w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]" /> */}
           <Navbar />
-          {children}
+          <div className="h-full overflow-auto max-w-3xl w-48r">{children}</div>
         </main>
       </body>
     </html>
